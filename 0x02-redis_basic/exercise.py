@@ -69,7 +69,8 @@ class Cache():
         self._redis.set(generate, data)
         return generate
 
-    def get(self, key: str, fn: Optional[Callable] = None) -> Union[str, bytes, int, float]:
+    def get(self, key: str, fn: Optional[Callable] = None) ->
+    Union[str, bytes, int, float]:
         """Retrieves data from cache"""
         value = self._redis.get(key)
         return value if not fn else fn(value)
